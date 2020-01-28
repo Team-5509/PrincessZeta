@@ -72,13 +72,10 @@ driverRightJoystick = new Joystick(0);
         SmartDashboard.putData("DriveTank", new DriveTank());
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
         SmartDashboard.putData("DriveClayton", new DriveClayton());
-        SmartDashboard.putData("DriveHalo", new DriveHalo());
-        SmartDashboard.putData("Intaking", new Intaking());
         SmartDashboard.putData("RotationControl", new RotationControl());
         SmartDashboard.putData("PositionControl", new PositionControl());
         SmartDashboard.putData("Shooting", new Shooting());
         SmartDashboard.putData("Winching", new Winching());
-        SmartDashboard.putData("Elevating", new Elevating());
         SmartDashboard.putData("Conveying", new Conveying());
         SmartDashboard.putData("ChangingColor", new ChangingColor());
 
