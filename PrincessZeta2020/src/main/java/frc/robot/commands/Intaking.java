@@ -47,15 +47,13 @@ public class Intaking extends Command {
     protected void execute() {
         boolean rightTriggerPush = Robot.oi.driverRightJoystick.getRawButtonPressed(1);
         boolean leftTriggerPush = Robot.oi.driverLeftJoystick.getRawButtonPressed(1);
-        boolean rightTriggerStop = Robot.oi.driverRightJoystick.getRawButtonReleased(1);
-        boolean leftTriggerStop = Robot.oi.driverLeftJoystick.getRawButtonReleased(1);
         if (rightTriggerPush == true){
             Robot.intake.suck(1);
         }
-        if (leftTriggerPush == true){
+        else if (leftTriggerPush == true){
             Robot.intake.suck(-1);
         }
-        if (rightTriggerStop == true || leftTriggerStop == true){
+        else{
             Robot.intake.stop();
         }
     }
