@@ -71,6 +71,12 @@ conveyorDrive = new WPI_TalonSRX(13);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    public void convey(int direction){
+        conveyorDrive.set(direction);
+    }
 
+    public void stop(){
+        convey(0);
+    }
 }
 
