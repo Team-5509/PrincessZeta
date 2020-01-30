@@ -71,6 +71,12 @@ intakeDrive = new WPI_TalonSRX(7);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    public void suck(int rotation){
+        intakeDrive.set(rotation);
+    }
 
+    public void stop(){
+        suck(0);
+    }
 }
 
