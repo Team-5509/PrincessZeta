@@ -38,11 +38,23 @@ public class Conveying extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        //Robot.conveyor.stop();
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        boolean conveyUp = Robot.oi.getcopilotControl().getRawButton(5);
+        boolean conveyDown = Robot.oi.getcopilotControl().getRawButton(6);
+        if (conveyUp){
+            Robot.conveyor.convey(1);
+        }
+        else if (conveyDown){
+            Robot.conveyor.convey(-1);
+        }
+        else {
+            Robot.conveyor.stop();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,11 +66,13 @@ public class Conveying extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        //Robot.conveyor.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        //end();
     }
 }
