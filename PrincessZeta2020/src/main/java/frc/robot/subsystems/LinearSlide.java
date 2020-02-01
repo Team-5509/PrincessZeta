@@ -72,6 +72,11 @@ slideDrive = new WPI_TalonSRX(12);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-
+    public void slide(double direction){
+        slideDrive.set(direction);
+    }
+    public void stop(){
+        slide(0);
+    }
 }
 
