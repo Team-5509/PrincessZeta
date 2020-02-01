@@ -305,7 +305,65 @@ Children:
         value: []
     Base: Subsystem
     Name: LedDrive
-  - Children: []
+  - Children:
+    - Children: []
+      Properties:
+        Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: &id004 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+            '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+          default: '0'
+          name: Forward PCM (Solenoid)
+          validators: &id005 [Solenoid]
+          value: '0'
+        Reverse PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: &id006 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+            '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+          default: '0'
+          name: Reverse PCM (Solenoid)
+          validators: &id007 [Solenoid]
+          value: '0'
+        Reverse Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: &id008 ['0', '1', '2', '3', '4', '5', '6', '7']
+          default: '0'
+          name: Reverse Channel (Solenoid)
+          validators: &id009 [Solenoid]
+          value: '1'
+        Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: &id010 ['0', '1', '2', '3', '4', '5', '6', '7']
+          default: '0'
+          name: Forward Channel (Solenoid)
+          validators: &id011 [Solenoid]
+          value: '0'
+      Base: Double Solenoid
+      Name: leftShiftDrive
+    - Children: []
+      Properties:
+        Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id004
+          default: '0'
+          name: Forward PCM (Solenoid)
+          validators: *id005
+          value: '0'
+        Reverse PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id006
+          default: '0'
+          name: Reverse PCM (Solenoid)
+          validators: *id007
+          value: '0'
+        Reverse Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id008
+          default: '0'
+          name: Reverse Channel (Solenoid)
+          validators: *id009
+          value: '3'
+        Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id010
+          default: '0'
+          name: Forward Channel (Solenoid)
+          validators: *id011
+          value: '2'
+      Base: Double Solenoid
+      Name: rightShiftDrive
     Properties:
       Send to SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Send to SmartDashboard, validators: null, value: false}
@@ -320,7 +378,7 @@ Children:
         default: []
         name: Constants
         validators: null
-        value: &id004 []
+        value: &id012 []
     Base: Subsystem
     Name: Shifter
   - Children: []
@@ -338,7 +396,7 @@ Children:
         default: []
         name: Constants
         validators: null
-        value: *id004
+        value: *id012
     Base: Subsystem
     Name: LimelightVision
   Properties: {}
@@ -348,30 +406,30 @@ Children:
   - Children: []
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: &id005 ['0', '1', '2', '3', '4', '5']
+        choices: &id013 ['0', '1', '2', '3', '4', '5']
         default: 1
         name: Number
-        validators: &id006 [Joystick]
+        validators: &id014 [Joystick]
         value: '0'
     Base: Joystick
     Name: driverRightJoystick
   - Children: []
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: *id005
+        choices: *id013
         default: 1
         name: Number
-        validators: *id006
+        validators: *id014
         value: '1'
     Base: Joystick
     Name: driverLeftJoystick
   - Children: []
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: *id005
+        choices: *id013
         default: 1
         name: Number
-        validators: *id006
+        validators: *id014
         value: '2'
     Base: Joystick
     Name: copilotControl
@@ -646,6 +704,50 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: ChangingColor
+  - Children: []
+    Properties:
+      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Autonomous Selection, validators: null, value: false}
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Run When Disabled, validators: null, value: false}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Shifter}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id015 []
+        name: Parameter presets
+        validators: null
+        value: *id015
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Instant Command
+    Name: ShiftHigh
+  - Children: []
+    Properties:
+      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Autonomous Selection, validators: null, value: false}
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Run When Disabled, validators: null, value: false}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Shifter}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id016 []
+        name: Parameter presets
+        validators: null
+        value: *id016
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Instant Command
+    Name: ShiftLow
   Properties: {}
   Base: Commands
   Name: Commands
