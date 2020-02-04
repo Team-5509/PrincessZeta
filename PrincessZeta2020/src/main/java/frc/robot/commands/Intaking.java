@@ -49,10 +49,10 @@ public class Intaking extends Command {
         boolean rightTriggerPush = Robot.oi.driverRightJoystick.getRawButton(1);
         boolean leftTriggerPush = Robot.oi.driverLeftJoystick.getRawButton(1);
         if (rightTriggerPush == true){
-            Robot.intake.suck(1);
+            Robot.intake.suck(.50);
         }
         else if (leftTriggerPush == true){
-            Robot.intake.suck(-1);
+            Robot.intake.suck(-.50);
         }
         else{
             Robot.intake.stop();
