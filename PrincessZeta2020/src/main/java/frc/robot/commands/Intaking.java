@@ -40,6 +40,7 @@ public class Intaking extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        Robot.intake.initSpeedMode();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -48,10 +49,10 @@ public class Intaking extends Command {
         boolean rightTriggerPush = Robot.oi.driverRightJoystick.getRawButton(1);
         boolean leftTriggerPush = Robot.oi.driverLeftJoystick.getRawButton(1);
         if (rightTriggerPush == true){
-            Robot.intake.suck(1);
+            Robot.intake.suck(.50);
         }
         else if (leftTriggerPush == true){
-            Robot.intake.suck(-1);
+            Robot.intake.suck(-.50);
         }
         else{
             Robot.intake.stop();

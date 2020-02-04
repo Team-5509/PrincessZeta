@@ -40,11 +40,22 @@ public class Elevating extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        Robot.linearSlide.stop();
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        int slider = Robot.oi.getcopilotControl().getPOV();
+        if (slider >= 315 || (slider <= 45 && slider >= 0)){
+            Robot.linearSlide.slide(1);
+        }
+        else if (slider <= 225 && slider >= 135){
+            Robot.linearSlide.slide(-1);
+        }
+        else {
+            Robot.linearSlide.stop();
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -56,11 +67,13 @@ public class Elevating extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.linearSlide.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 }
