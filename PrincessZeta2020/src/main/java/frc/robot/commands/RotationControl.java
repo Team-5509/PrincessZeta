@@ -8,9 +8,10 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 package frc.robot.commands;
+
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.util.Color;
 import frc.robot.Robot;
 
 /**
@@ -38,11 +39,19 @@ public class RotationControl extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        Robot.controlPanel.rotateControlPanel(.5);
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        Color color = Robot.controlPanel.getColor();
+        boolean isRed = Robot.controlPanel.isRed(color);
+        
+        if (isRed){
+            Robot.controlPanel.stopRotation();
+        }
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,6 +63,7 @@ public class RotationControl extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.controlPanel.stopRotation();
     }
 
     // Called when another command which requires one or more of the same
