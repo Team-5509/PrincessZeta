@@ -54,7 +54,7 @@ public class RotationControl extends Command {
             redCount++;
         }
         
-        if (redCount < 6){
+        if (redCount < 7){
             Robot.controlPanel.rotateControlPanel(.5);
         }
         else{
