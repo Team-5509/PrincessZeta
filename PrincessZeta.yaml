@@ -507,6 +507,35 @@ Children:
           value: whenPressed
       Base: Joystick Button
       Name: controlPanelButton
+    - Children: []
+      Properties:
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: copilotControl}
+        Parameters: !!robotbuilder.data.properties.ParametersProperty
+          default: []
+          name: Parameters
+          validators: null
+          value: []
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id013
+          default: '1'
+          name: Button
+          validators: null
+          value: '2'
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id014
+          value: Shooting
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id015
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenPressed
+      Base: Joystick Button
+      Name: autonomousShootButton
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id016
