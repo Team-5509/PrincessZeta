@@ -12,6 +12,7 @@
 package frc.robot.subsystems;
 
 
+import frc.robot.Robot;
 import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -81,6 +82,27 @@ public class LimelightVision extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+    public void robomove(){
+        double x = tx.getDouble(0.0);
+        double y = ty.getDouble(0.0);
+        double area = ta.getDouble(0.0);
+        float Kp = (float) -0.1;
+        float min_command = (float) 0.05;
 
+        double heading_error = -x;
+        float steering_adjust = 0.0f;
+        if (x > 1.0)
+        {
+                steering_adjust = (float) (Kp*heading_error - min_command);
+        }
+        else if (x < 1.0)
+        {
+                steering_adjust = (float) (Kp*heading_error + min_command);
+        }
+        Robot.driveTrain.drive((double) steering_adjust, (double) -steering_adjust);
 }
+public void stop(){
+    Robot.driveTrain.drive(0, 0);
+}
+    }
 

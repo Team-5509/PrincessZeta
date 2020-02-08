@@ -48,7 +48,6 @@ public class DriveTank extends Command {
         double leftSpeed = -leftControllerY;
         double rightSpeed = -rightControllerY;
 
-        Robot.driveTrain.drive(leftSpeed, rightSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
