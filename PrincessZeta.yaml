@@ -491,12 +491,41 @@ Children:
           value: whileHeld
       Base: Joystick Button
       Name: alignToTargetButton
+    - Children: []
+      Properties:
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: driverRightJoystick}
+        Parameters: !!robotbuilder.data.properties.ParametersProperty
+          default: &id016 []
+          name: Parameters
+          validators: null
+          value: *id016
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id013
+          default: '1'
+          name: Button
+          validators: null
+          value: '2'
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id014
+          value: FoldIntake
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id015
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whenPressed
+      Base: Joystick Button
+      Name: toggleFoldButton
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: &id016 ['0', '1', '2', '3', '4', '5']
+        choices: &id017 ['0', '1', '2', '3', '4', '5']
         default: 1
         name: Number
-        validators: &id017 [Joystick]
+        validators: &id018 [Joystick]
         value: '0'
     Base: Joystick
     Name: driverRightJoystick
@@ -563,10 +592,10 @@ Children:
       Name: intakeOutButton
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: *id016
+        choices: *id017
         default: 1
         name: Number
-        validators: *id017
+        validators: *id018
         value: '1'
     Base: Joystick
     Name: driverLeftJoystick
@@ -693,10 +722,10 @@ Children:
       Name: autoShootButton
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
-        choices: *id016
+        choices: *id017
         default: 1
         name: Number
-        validators: *id017
+        validators: *id018
         value: '2'
     Base: Joystick
     Name: copilotControl
@@ -1097,14 +1126,39 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Shooter}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id018 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id018
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: ShootingAuto
+  - Children: []
+    Properties:
+      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Autonomous Selection, validators: null, value: false}
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Run When Disabled, validators: null, value: false}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id019 []
+        name: Parameter presets
+        validators: null
+        value: *id019
+      Commands: !!robotbuilder.data.properties.ListProperty
+        default: &id020 []
+        name: Commands
+        validators: [List]
+        value: *id020
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command Group
+    Name: FoldIntake
   Properties: {}
   Base: Commands
   Name: Commands
