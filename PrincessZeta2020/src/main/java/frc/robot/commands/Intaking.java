@@ -46,17 +46,7 @@ public class Intaking extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        boolean rightTriggerPush = Robot.oi.driverRightJoystick.getRawButton(1);
-        boolean leftTriggerPush = Robot.oi.driverLeftJoystick.getRawButton(1);
-        if (rightTriggerPush == true){
-            Robot.intake.suck(.50);
-        }
-        else if (leftTriggerPush == true){
-            Robot.intake.suck(-.50);
-        }
-        else{
-            Robot.intake.stop();
-        }
+            Robot.intake.suck(m_spinInVoltage);
     }
 
     // Make this return true when this Command no longer needs to run execute()
