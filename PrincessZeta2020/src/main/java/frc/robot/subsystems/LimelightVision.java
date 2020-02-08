@@ -86,8 +86,8 @@ public class LimelightVision extends Subsystem {
         double x = tx.getDouble(0.0);
         double y = ty.getDouble(0.0);
         double area = ta.getDouble(0.0);
-        float Kp = (float) -0.1;
-        float min_command = (float) 0.05;
+        float Kp = -0.1f;
+        float min_command = 0.05f;
 
         double heading_error = -x;
         float steering_adjust = 0.0f;
