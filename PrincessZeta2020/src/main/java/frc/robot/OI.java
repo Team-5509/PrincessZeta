@@ -113,7 +113,6 @@ shiftHighButton.whenPressed(new ShiftHigh());
         SmartDashboard.putData("RotationControl", new RotationControl());
         SmartDashboard.putData("PositionControl", new PositionControl());
         SmartDashboard.putData("Shooting", new Shooting());
-        SmartDashboard.putData("Winching", new Winching());
         SmartDashboard.putData("ChangingColor", new ChangingColor());
         SmartDashboard.putData("ShiftHigh", new ShiftHigh());
         SmartDashboard.putData("ShiftLow", new ShiftLow());
