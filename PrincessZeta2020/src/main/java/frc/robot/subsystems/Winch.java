@@ -77,6 +77,13 @@ winchDrive2 = new WPI_TalonSRX(11);
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+public void pull(double power){
+    winchDrive2.set(power);
+    winchDrive1.set(power);
 
+}
+    public void stop(){
+        pull(0);
+    }
 }
 
