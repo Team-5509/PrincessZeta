@@ -66,8 +66,8 @@ public class Shooter extends Subsystem {
 
     public double angleOfCamera = 0.0; // Fake value (must be in radians)
     public double angleBallLeaves = 0.707; //Fake value ~45 degrees (must be in radians)
-    public double heightOfCamera = 1.0; // Fake value
-    public double heightOfGoal = 4.0; // Fake value
+    public double heightOfCamera = 3.28; 
+    public double heightOfGoal = 6.71; 
     public double g = 9.81;
 
 
@@ -117,8 +117,9 @@ public class Shooter extends Subsystem {
         NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
         NetworkTableEntry ty = table.getEntry("ty");
         double angleToTarget = ty.getDouble(0.0) * (Math.PI/180.0);
+        double deltaHeight = (heightOfGoal - heightOfCamera);
 
-        double distance = (heightOfGoal - heightOfCamera) / (Math.tan(angleOfCamera + angleToTarget));
+        double distance = deltaHeight / (Math.tan(angleOfCamera + angleToTarget));
         SmartDashboard.putNumber("Distance", distance);
         return distance;
     }
