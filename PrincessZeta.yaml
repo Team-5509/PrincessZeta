@@ -1261,7 +1261,23 @@ Children:
         default: []
         name: Parameter presets
         validators: null
-        value: []
+        value:
+        - !!robotbuilder.data.properties.ParameterSet
+          name: zeroDegrees
+          parameters:
+          - {name: degrees, type: double, value: '0'}
+        - !!robotbuilder.data.properties.ParameterSet
+          name: right90Degrees
+          parameters:
+          - {name: degrees, type: double, value: '90'}
+        - !!robotbuilder.data.properties.ParameterSet
+          name: one80Degrees
+          parameters:
+          - {name: degrees, type: double, value: '180'}
+        - !!robotbuilder.data.properties.ParameterSet
+          name: left90Degrees
+          parameters:
+          - {name: degrees, type: double, value: '-90'}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
@@ -1285,7 +1301,7 @@ Children:
         validators: null
         value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
+        name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: TurnNDegreesRelative
   - Children: []

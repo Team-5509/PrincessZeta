@@ -12,6 +12,7 @@ package frc.robot.subsystems;
 
 import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpiutil.math.MathUtil;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.controller.PIDController;
@@ -120,6 +121,8 @@ public class DriveTrain extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void drive(double leftSpeed, double rightSpeed) {
+        SmartDashboard.putNumber("DriveTrain_leftSpeed", leftSpeed);
+        SmartDashboard.putNumber("DriveTrain_rightSpeed", rightSpeed);
         frontLeftDrive.set(leftSpeed);
         frontRightDrive.set(rightSpeed);
     }
