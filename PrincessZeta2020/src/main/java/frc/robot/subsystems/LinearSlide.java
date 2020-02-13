@@ -66,11 +66,11 @@ public class LinearSlide extends Subsystem {
     public void slide(double direction) {
         int slider = Robot.oi.getcopilotControl().getPOV();
         if (slider >= 315 || (slider <= 45 && slider >= 0)) {
-            Robot.linearSlide.slide(1);
+            slideDrive.set(1);
         } else if (slider <= 225 && slider >= 135) {
-            Robot.linearSlide.slide(-1);
+            slideDrive.set(-1);
         } else {
-            Robot.linearSlide.stop();
+            slideDrive.set(0);
         }
         slideDrive.set(direction);
     }
