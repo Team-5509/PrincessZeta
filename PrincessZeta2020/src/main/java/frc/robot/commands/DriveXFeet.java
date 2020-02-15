@@ -49,7 +49,7 @@ public class DriveXFeet extends Command {
     }
 
     public DriveXFeet(double feet){
-        this(feet, .5);
+        this(feet, .4);
     }
 
     // Called just before this Command runs the first time
@@ -57,9 +57,8 @@ public class DriveXFeet extends Command {
     protected void initialize() {
         initialEncoderPosition = Robot.driveTrain.getFrontLeftEncoderPosition();
 
-        pidController.setSetpoint(10.0);
-        pidController.enableContinuousInput(-m_maxSpeed, m_maxSpeed);
-        pidController.setTolerance(.1);
+        pidController.setSetpoint(m_feet);
+        pidController.setTolerance(.01);
         
         feetPerTicks = 1.0 / 10.0;
     }
@@ -76,7 +75,14 @@ public class DriveXFeet extends Command {
         SmartDashboard.putNumber("initialEncoderPosition", initialEncoderPosition);
         SmartDashboard.putNumber("m_feet", m_feet);
         SmartDashboard.putNumber("drive x feet pid setpoint",pidController.getSetpoint());
-        driveSpeed = pidController.calculate(feetMoved, 10);
+        driveSpeed = pidController.calculate(feetMoved, m_feet);
+
+        if (driveSpeed > m_maxSpeed){
+            driveSpeed = m_maxSpeed;
+        }
+        else if (driveSpeed < -m_maxSpeed){
+            driveSpeed = -m_maxSpeed;
+        }
         
         Robot.driveTrain.drive(driveSpeed, driveSpeed);
         SmartDashboard.putNumber("DriveTrain frontLeftEncoder", Robot.driveTrain.getFrontLeftEncoderPosition());
