@@ -147,8 +147,6 @@ public class Shooter extends Subsystem {
         double angleToTarget = ty.getDouble(0.0) * (Math.PI/180.0);
     
         double distance = deltaHeight / (Math.tan(angleOfCamera + angleToTarget));
-
-        distance += (3/12); //Normalizing the distance  (it's like always off by 3 inches)
         SmartDashboard.putNumber("Distance", distance);
         return distance;
     }
