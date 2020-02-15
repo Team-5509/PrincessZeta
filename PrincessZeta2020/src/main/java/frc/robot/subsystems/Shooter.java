@@ -68,6 +68,7 @@ public class Shooter extends Subsystem {
     public double angleBallLeaves = 0.707; //Fake value ~45 degrees (must be in radians)
     public double heightOfCamera = 3.28; 
     public double heightOfGoal = 6.71; 
+    double deltaHeight = (heightOfGoal - heightOfCamera);
     public double g = 9.81;
 
 
@@ -113,19 +114,50 @@ public class Shooter extends Subsystem {
         this.setPercentSpeedPIDBottom(rotation);
     }
 
+
+    /*
+        a1 = arctan((h2 - h1) / d - tan(a2)). This equation, with a known distance input, helps find the 
+        mounted camera angle.
+    */
+    public double getCameraMountingAngle(double measuredDistance){
+        NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+        NetworkTableEntry ty = table.getEntry("ty");
+        double radiansToTarget = ty.getDouble(0.0) * (Math.PI/180.0);
+
+        //find the result of (h2-h1)/d
+        double heightOverDistance = deltaHeight/measuredDistance;
+
+        //find the result of tan(a2)
+        double tangentOfAngle = Math.tan(radiansToTarget);
+
+        // (h2-h1)/d - tan(a2) subtract two results for the tangent of the two sides
+        double TangentOfSides = heightOverDistance - tangentOfAngle;
+
+        //inverse of the tan to get the camera mounting angle in radians
+        double cameraMountingAngleRadians = Math.atan(TangentOfSides);
+
+        return cameraMountingAngleRadians;
+    }
+   
+    
+
     public double getHorizontalDistance() {
         NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
         NetworkTableEntry ty = table.getEntry("ty");
         double angleToTarget = ty.getDouble(0.0) * (Math.PI/180.0);
-        double deltaHeight = (heightOfGoal - heightOfCamera);
-
+    
         double distance = deltaHeight / (Math.tan(angleOfCamera + angleToTarget));
+
+        //distance = distance*.649 +3.48;
         SmartDashboard.putNumber("Distance", distance);
         return distance;
     }
 
     // Calculates the speed needed
-    public void shootAuto() { 
+    public void shootAuto() {
+        //See what the camera mounting angle is.
+        SmartDashboard.putNumber("Mounting Angle of Camera", getCameraMountingAngle(15));
+
         double x = getHorizontalDistance();
         double deltaHeight = heightOfGoal - heightOfCamera;
         //The velocity
