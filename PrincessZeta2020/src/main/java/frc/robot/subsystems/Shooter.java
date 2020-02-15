@@ -64,10 +64,10 @@ public class Shooter extends Subsystem {
     public double speedF_bottom = SPEED_F_CONSTANT_BOTTOM;
 
 
-    public double angleOfCamera = 0.0; // Fake value (must be in radians)
+    public double angleOfCamera = 0.176996; // (must be in radians)
     public double angleBallLeaves = 0.707; //Fake value ~45 degrees (must be in radians)
-    public double heightOfCamera = 3.28; 
-    public double heightOfGoal = 6.71; 
+    public double heightOfCamera = 1.875; 
+    public double heightOfGoal = 7.010416666666666667; 
     double deltaHeight = (heightOfGoal - heightOfCamera);
     public double g = 9.81;
 
@@ -156,7 +156,7 @@ public class Shooter extends Subsystem {
     // Calculates the speed needed
     public void shootAuto() {
         //See what the camera mounting angle is.
-        SmartDashboard.putNumber("Mounting Angle of Camera", getCameraMountingAngle(15));
+        SmartDashboard.putNumber("Mounting Angle of Camera", getCameraMountingAngle(15.04166666667));
 
         double x = getHorizontalDistance();
         double deltaHeight = heightOfGoal - heightOfCamera;
