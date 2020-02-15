@@ -10,6 +10,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 /**
@@ -48,6 +49,7 @@ public class DriveTank extends Command {
         double leftSpeed = -leftControllerY;
         double rightSpeed = -rightControllerY;
         Robot.driveTrain.drive(leftSpeed, rightSpeed);
+        SmartDashboard.putNumber("DriveTrain frontLeftEncoder", Robot.driveTrain.getFrontLeftEncoderPosition());
     }
 
     // Make this return true when this Command no longer needs to run execute()

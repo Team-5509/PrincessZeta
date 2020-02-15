@@ -12,6 +12,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.LedDrive;
 
 /**
  *
@@ -46,6 +47,13 @@ public class Conveying extends Command {
     @Override
     protected void execute() {
         Robot.conveyor.convey(m_spinInVoltage);
+
+        if (m_spinInVoltage > 0 || m_spinInVoltage < 0) {
+            Robot.ledDrive.setLightsPattern(.41);
+        }
+        else {
+            Robot.ledDrive.setLightsPattern(.43);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
