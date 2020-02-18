@@ -104,6 +104,7 @@ public class LimelightVision extends Subsystem {
 
     public boolean isDoneAligning(){
         return isDone;
+        
     }
 
     public void stop() {
