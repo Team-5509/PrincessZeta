@@ -80,6 +80,11 @@ public class DriveTrain extends Subsystem {
         backLeftDrive = new CANSparkMax(3, MotorType.kBrushless);
         backRightDrive = new CANSparkMax(4, MotorType.kBrushless);
 
+        frontLeftDrive.setIdleMode(CANSparkMax.IdleMode.kCoast);
+        frontRightDrive.setIdleMode(CANSparkMax.IdleMode.kCoast);
+        backLeftDrive.setIdleMode(CANSparkMax.IdleMode.kCoast);
+        backRightDrive.setIdleMode(CANSparkMax.IdleMode.kCoast);
+
         /*
          * frontLeftDrive = new WPI_TalonSRX(1); frontRightDrive = new WPI_TalonSRX(2);
          * backLeftDrive = new WPI_TalonSRX(3); backRightDrive = new WPI_TalonSRX(4);
@@ -141,7 +146,7 @@ public class DriveTrain extends Subsystem {
         SmartDashboard.putNumber("DriveTrain_leftSpeed", leftSpeed);
         SmartDashboard.putNumber("DriveTrain_rightSpeed", rightSpeed);
         frontLeftDrive.set(leftSpeed);
-        frontRightDrive.set(rightSpeed);
+        frontRightDrive.set(-rightSpeed);
     }
 
     public void stop() {

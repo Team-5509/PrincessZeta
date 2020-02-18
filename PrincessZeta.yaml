@@ -628,7 +628,7 @@ Children:
           validators: null
           value: whenPressed
       Base: Joystick Button
-      Name: controlPanelButton
+      Name: rotationControlButton
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
