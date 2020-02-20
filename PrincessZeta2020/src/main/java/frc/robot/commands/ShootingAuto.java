@@ -51,12 +51,13 @@ public class ShootingAuto extends Command {
     @Override
     protected boolean isFinished() {
         return false;
+
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        //FIXME: Need to stop the shooter
+        Robot.shooter.stop();
     }
 
     // Called when another command which requires one or more of the same
