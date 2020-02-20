@@ -49,11 +49,10 @@ public class Conveying extends Command {
         Robot.conveyor.convey(m_spinInVoltage);
 
         if (m_spinInVoltage > 0 || m_spinInVoltage < 0) {
-            //FIXME: Make magic numbers into constants with names on what they do (ie: LED_LIGHT_PATTERN_BLUE_GOLD_CHASER)
-            Robot.ledDrive.setLightsPattern(.41);
+            Robot.ledDrive.setLightsPattern(Robot.ledDrive.TRACING_BLUE_AND_YELLOW);
         }
         else {
-            Robot.ledDrive.setLightsPattern(.43);
+            Robot.ledDrive.setLightsPattern(Robot.ledDrive.DEFAULT_BPM_BLUE_AND_YELLOW);
         }
     }
 
