@@ -53,17 +53,20 @@ private WPI_TalonSRX shooterDrive2;
     private final static double SPEED_D_CONSTANT_BOTTOM = 0.0;
     private final static double SPEED_F_CONSTANT_BOTTOM = 0.0;
 
+    //FIXME: Doesn't need to be public
     public double speedP_top = SPEED_P_CONSTANT_TOP;
     public double speedI_top = SPEED_I_CONSTANT_TOP;
     public double speedD_top = SPEED_D_CONSTANT_TOP;
     public double speedF_top = SPEED_F_CONSTANT_TOP;
 
+    //FIXME: Doesn't need to be public
     public double speedP_bottom = SPEED_P_CONSTANT_BOTTOM;
     public double speedI_bottom = SPEED_I_CONSTANT_BOTTOM;
     public double speedD_bottom = SPEED_D_CONSTANT_BOTTOM;
     public double speedF_bottom = SPEED_F_CONSTANT_BOTTOM;
 
 
+    //FIXME: Doesn't need to be public
     public double angleOfCamera = 0.176996; // (must be in radians)
     public double angleBallLeaves = 0.707; //Fake value ~45 degrees (must be in radians)
     public double heightOfCamera = 1.875; 
@@ -71,7 +74,7 @@ private WPI_TalonSRX shooterDrive2;
     double deltaHeight = (heightOfGoal - heightOfCamera);
     public double g = 9.81;
 
-
+    //FIXME: Doesn't need to be public
     public final static int PID_SLOT_SPEED_MODE = 0;
     private final int TIMEOUT_MS = 10;
 
@@ -187,6 +190,7 @@ private WPI_TalonSRX shooterDrive2;
     }
 
     public void stop() {
+        //FIXME: You're not setting neutral mode anywhere else, can move to constructor
         shooterDrive1.setNeutralMode(NeutralMode.Brake);
         shooterDrive2.setNeutralMode(NeutralMode.Brake);
         shoot(0);
@@ -200,6 +204,8 @@ private WPI_TalonSRX shooterDrive2;
         shooterDrive2.set(ControlMode.Velocity, MAX_TICKS_PER_SEC_BOTTOM * setSpeed);
     }
 
+
+    //FIXME: You're not using these, can remove
     public int getTicksPerSecondTop() {
         return shooterDrive1.getSelectedSensorVelocity();
     }

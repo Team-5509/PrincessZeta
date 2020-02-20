@@ -70,6 +70,9 @@ addChild("elbowDrive",elbowDrive);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     private boolean isOut;
+
+    //FIXME: Would recommend making foldOut()/foldIn() methods rather than relying on a magic boolean
+    // is true out or in? You can tell by looking at the parameter name, but it's a lot easier to remember a method name
     public void fold(boolean foldOut){
         if (foldOut){
             elbowDrive.set(Value.kForward);

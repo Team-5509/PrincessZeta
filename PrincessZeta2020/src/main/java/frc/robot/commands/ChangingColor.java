@@ -43,6 +43,7 @@ public class ChangingColor extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        //FIXME: This is doing nothing. Can it be removed?
     }
 
     // Make this return true when this Command no longer needs to run execute()

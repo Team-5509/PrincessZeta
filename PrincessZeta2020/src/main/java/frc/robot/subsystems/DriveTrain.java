@@ -67,6 +67,9 @@ public class DriveTrain extends Subsystem {
     private static double PIDTURN_I = 0.00004;
     private static double PIDTURN_D = 0.0025;
 
+    //FIXME: This should not be public.
+    // Add methods to handle what you need for this
+    //FIXME: *what* is this PID controller controlling? (add it to the name)
     public PIDController pidController;
 
     private static final AHRS ahrs = new AHRS(Port.kMXP); // NAVx
@@ -153,27 +156,35 @@ public class DriveTrain extends Subsystem {
         drive(0, 0);
     }
 
+    //FIXME: Gyro should not be public. Can remove.
     public static AHRS getGyro() {
         return ahrs;
     }
 
+    //FIXME: Call it something more human friendly (getAngle() for example)
     public double getGyroYaw() {
         return ahrs.getYaw();
     }
 
+    //FIXME: You don't need this. Can remove
     public static double getGyroPID() {
         return ahrs.pidGet();
     }
 
+    //FIXME: You have get<position>EncoderPosition methods, can remove this
     public double getEncoderPosition(CANEncoder encoder) {
         return encoder.getPosition();
     }
+
+    //FIXME: Fairly certain you're not using these. Can remove
     public double getFrontLeftEncoderPosition() {
         return frontLeftEncoder.getPosition();
     }
     public double getFrontRightEncoderPosition() {
         return frontRightEncoder.getPosition();
     }
+
+    //FIXME: back left and back right follow front. There's no need to have separate positions for them
     public double getbackLeftEncoderPosition() {
         return backLeftEncoder.getPosition();
     }
@@ -181,9 +192,12 @@ public class DriveTrain extends Subsystem {
         return backRightEncoder.getPosition();
     }
 
+    //FIXME: You don't need this. Can remove
     public static double getVelocity(CANEncoder encoder) {
         return encoder.getVelocity();
     }
+
+    //FIXME: You're using git. There's no need to keep commented code. Can remove
     /*
      * public void setPercentVBus() { frontLeftDrive.set(ControlMode.PercentOutput,
      * 0); frontRightDrive.set(ControlMode.PercentOutput, 0); }
@@ -207,6 +221,7 @@ public class DriveTrain extends Subsystem {
      * frontRightDrive.set(mode, 0); }
      */
 
+     //FIXME: You're not using this. Can remove
     public void setPercentSpeedPID(double setSpeedL, double setSpeedR) {
         setSpeedR = MathUtil.clamp(setSpeedR, -1, 1);
         setSpeedL = MathUtil.clamp(setSpeedL, -1, 1);

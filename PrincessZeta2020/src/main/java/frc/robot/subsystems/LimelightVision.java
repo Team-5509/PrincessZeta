@@ -103,7 +103,10 @@ public class LimelightVision extends Subsystem {
         if (tv.getDouble(0.0) == 1){
             Robot.ledDrive.setLightsPattern(.77);
         }
-
+        //FIXME: Subsystems should NOT be manipulating other subsystems
+        // They can however, retrieve values from other systems.
+        // Would recommend either having this return a delta on what to move to the calling command,
+        // Or have the drivetrain get it's values from this (manipulating not allowed, getting values is). 
         Robot.driveTrain.drive((double) steering_adjust, (double) -steering_adjust);
     }
 
@@ -112,6 +115,7 @@ public class LimelightVision extends Subsystem {
     }
 
     public void stop() {
+        //FIXME: Subsystems should NOT be manipulating other subsystems
         Robot.driveTrain.drive(0, 0);
     }
 }

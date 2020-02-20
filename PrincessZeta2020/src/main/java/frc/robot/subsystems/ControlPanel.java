@@ -66,6 +66,7 @@ controlPanelDrive = new WPI_TalonSRX(6);
         // Put code here to be run every loop
         Color detectedColor = m_colorSensor.getColor();
         double IR = m_colorSensor.getIR();
+        //FIXME: Need better key names (at the very least, throw the class name in)
         SmartDashboard.putNumber("Red", detectedColor.red);
         SmartDashboard.putNumber("Green", detectedColor.green);
         SmartDashboard.putNumber("Blue", detectedColor.blue);

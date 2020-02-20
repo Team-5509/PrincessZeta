@@ -47,6 +47,7 @@ public class DriveHalo extends Command {
     protected void execute() {
         double leftStickY = Robot.oi.driverLeftJoystick.getRawAxis(1);
         double rightStickX = Robot.oi.driverLeftJoystick.getRawAxis(4);
+        //FIXME: Would break up the calculation and the clamping into 2 distinct lines
         double leftSpeed = MathUtil.clamp(rightStickX - leftStickY, -1, 1);
         double rightSpeed = MathUtil.clamp(-rightStickX - leftStickY, -1, 1);
 

@@ -43,6 +43,7 @@ public class AlignDrivetrainToTarget extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        //FIXME: Subsystems should NOT be manipulating other systems. 
         Robot.limelightVision.robomove();
     }
 
@@ -55,6 +56,7 @@ public class AlignDrivetrainToTarget extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        //FIXME: This requires drivetrain, should be using drivetrain stop
         Robot.limelightVision.stop();
     }
 

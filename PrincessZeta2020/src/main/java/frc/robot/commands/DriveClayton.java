@@ -50,6 +50,7 @@ public class DriveClayton extends Command {
     protected void execute() {
         double controllerY = Robot.oi.driverLeftJoystick.getY();
         double controllerTwist = Robot.oi.driverLeftJoystick.getTwist();
+        //FIXME: Would break up the calculation and the clamping into 2 distinct lines
         double leftSpeed = MathUtil.clamp(controllerTwist - controllerY, -1, 1);
         double rightSpeed = MathUtil.clamp(-controllerTwist - controllerY, -1, 1);
 

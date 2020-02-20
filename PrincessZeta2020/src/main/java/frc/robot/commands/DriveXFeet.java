@@ -58,8 +58,10 @@ public class DriveXFeet extends Command {
         initialEncoderPosition = Robot.driveTrain.getFrontLeftEncoderPosition();
 
         pidController.setSetpoint(m_feet);
+        // FIXME: tolerance doesn't change, move to constructor. 
         pidController.setTolerance(.01);
         
+        //FIXME: This is a constant, move to a final variable, initialize with declaration
         feetPerTicks = 1.0 / 10.0;
     }
 
@@ -69,6 +71,7 @@ public class DriveXFeet extends Command {
         double frontLeftEncoderPosition = Robot.driveTrain.getFrontLeftEncoderPosition();
         double feetMoved = feetPerTicks * (frontLeftEncoderPosition - initialEncoderPosition);
 
+        //FIXME: Would recommend putting in class name into the smart dashboard keys so their source can easily be found at a later date
         SmartDashboard.putNumber("feetMovedCalculated", feetMoved);
         SmartDashboard.putNumber("feetPerTicks", feetPerTicks);
         SmartDashboard.putNumber("frontLeftEncoderPosition", frontLeftEncoderPosition);
@@ -104,6 +107,7 @@ public class DriveXFeet extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        //FIXME: DRY (don't repeat yourself)
         Robot.driveTrain.stop();
     }
 }

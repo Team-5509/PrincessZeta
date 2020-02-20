@@ -70,6 +70,8 @@ winchDrive2 = new WPI_TalonSRX(11);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void pull(double power) {
+        //FIXME: A winch can only go one way. 
+        // Put a check here to ensure that it can only go one way (ie: clamp to [0,1] rather than [-1,1])
         winchDrive2.set(power);
         winchDrive1.set(power);
 

@@ -49,6 +49,7 @@ public class Conveying extends Command {
         Robot.conveyor.convey(m_spinInVoltage);
 
         if (m_spinInVoltage > 0 || m_spinInVoltage < 0) {
+            //FIXME: Make magic numbers into constants with names on what they do (ie: LED_LIGHT_PATTERN_BLUE_GOLD_CHASER)
             Robot.ledDrive.setLightsPattern(.41);
         }
         else {
@@ -65,11 +66,13 @@ public class Conveying extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        //FIXME: Stop the conveyor
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        //FIXME: Stop the conveyor (and DRY: don't repeat yourself)
     }
 }

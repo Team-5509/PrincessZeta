@@ -77,6 +77,8 @@ intakeDrive = new WPI_TalonSRX(7);
     @Override
     public void periodic() {
         // Put code here to be run every loop
+        //FIXME: Put intake speed on smart dashboard
+        // There's 2 values: the current speed, and the desired speed
 
     }
 
@@ -102,6 +104,7 @@ intakeDrive = new WPI_TalonSRX(7);
     }
 
     public void stop() {
+        //FIXME: You don't set it to any other neutral modes. Can move this to constructor
         intakeDrive.setNeutralMode(NeutralMode.Brake);
         suck(0);
     }

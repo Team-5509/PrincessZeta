@@ -45,6 +45,10 @@ public class Shooting extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        //FIXME: Split into multiple lines
+        // 1 to get the axis value
+        // 1 to shoot
+        // You'll need this if you decide you need to scale the values
         Robot.shooter.shoot(Robot.oi.getcopilotControl().getRawAxis(1));
 
     }
@@ -58,11 +62,13 @@ public class Shooting extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        //FIXME: Need to stop the shooter
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        //FIXME: Need to stop the shooter (DRY: don't repeat yourself)
     }
 }

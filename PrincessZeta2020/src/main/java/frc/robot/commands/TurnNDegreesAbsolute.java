@@ -46,6 +46,8 @@ public class TurnNDegreesAbsolute extends Command {
 
         setTimeout(5);
         Robot.driveTrain.pidController.setSetpoint(m_degrees);
+
+        //FIXME: continuous input and tolerance won't change. Move these to the constructor
         Robot.driveTrain.pidController.enableContinuousInput(-180, 180);
         Robot.driveTrain.pidController.setTolerance(1);
     }
@@ -68,11 +70,14 @@ public class TurnNDegreesAbsolute extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        //FIXME: Need to stop the robot
     }
+    
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        //FIXME: Need to stop the robot (DRY: Don't repeat yourself)
     }
 }

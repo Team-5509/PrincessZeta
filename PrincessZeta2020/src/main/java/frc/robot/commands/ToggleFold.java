@@ -38,6 +38,7 @@ public class ToggleFold extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
+        // FIXME: Can just use the boolean NOT operator (!)
         if(Robot.intakeElbow.getIsOut()){
             Robot.intakeElbow.fold(false);
         }
