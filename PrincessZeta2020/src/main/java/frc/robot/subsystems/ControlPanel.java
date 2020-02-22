@@ -98,6 +98,30 @@ controlPanelDrive = new WPI_TalonSRX(6);
         }
 
     }
+    public boolean isYellow(Color color) {
+        if (color.red >= .4) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    public boolean isBlue(Color color) {
+        if (color.blue >= .4) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    public boolean isGreen(Color color) {
+        if (color.green >= .4) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 
     public void stopRotation() {
         rotateControlPanel(0);
