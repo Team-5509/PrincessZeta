@@ -95,7 +95,7 @@ public class DriveTrain extends Subsystem {
          * backLeftDrive = new WPI_TalonSRX(3); backRightDrive = new WPI_TalonSRX(4);
          */
 
-        backLeftDrive.follow(frontLeftDrive);
+        backLeftDrive.follow(ExternalFollower.kFollowerSparkMax, frontLeftDrive.getDeviceId());
         backRightDrive.follow(frontRightDrive);
 
         frontLeftEncoder = new CANEncoder(frontLeftDrive);
