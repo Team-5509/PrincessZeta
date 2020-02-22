@@ -66,7 +66,7 @@ public class DriveXFeet extends Command {
     @Override
     protected void execute() {
         double frontLeftEncoderPosition = Robot.driveTrain.getFrontLeftEncoderPosition();
-        feetPerTicks = SmartDashboard.getNumber("DriveXFeet feetPerTicks", 1.0 / 10.0);
+        //feetPerTicks = SmartDashboard.getNumber("DriveXFeet feetPerTicks", 1.0 / 10.0);
         double feetMoved = feetPerTicks * (frontLeftEncoderPosition - initialEncoderPosition);
 
         SmartDashboard.putNumber("DriveXFeet feetMovedCalculated", feetMoved);   
