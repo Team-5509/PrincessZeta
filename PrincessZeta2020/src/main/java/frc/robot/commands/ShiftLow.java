@@ -38,7 +38,7 @@ public class ShiftLow extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
-        Robot.shifter.shift(false);
+        Robot.shifter.shiftLow();
     }
 
 }

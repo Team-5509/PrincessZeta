@@ -26,7 +26,6 @@ public class FoldIntake extends CommandGroup {
         // e.g. addSequential(new Command1());
         // addSequential(new Command2());
         // these will run in order.
-        //FIXME: This shouldn't work as is. Either fix this command, or remove it
         addSequential(new FoldIn());
         addSequential(new FoldOut());
         // To run multiple commands at the same time,

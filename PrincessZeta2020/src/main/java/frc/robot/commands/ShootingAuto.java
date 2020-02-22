@@ -64,6 +64,6 @@ public class ShootingAuto extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
-        //FIXME: Need to stop the shooter (DRY: don't repeat yourself)
+        end();
     }
 }

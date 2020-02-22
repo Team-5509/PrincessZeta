@@ -38,7 +38,7 @@ public class FoldIn extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
-        Robot.intakeElbow.fold(false);
+        Robot.intakeElbow.foldIn();
     }
 
 }

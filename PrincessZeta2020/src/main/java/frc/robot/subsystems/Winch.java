@@ -12,6 +12,7 @@ package frc.robot.subsystems;
 
 import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpiutil.math.MathUtil;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
@@ -70,11 +71,10 @@ winchDrive2 = new WPI_TalonSRX(11);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void pull(double power) {
-        //FIXME: A winch can only go one way. 
-        // Put a check here to ensure that it can only go one way (ie: clamp to [0,1] rather than [-1,1])
-        winchDrive2.set(power);
-        winchDrive1.set(power);
-
+        double powerClamped = MathUtil.clamp(power, 0, 1);
+        
+        winchDrive2.set(powerClamped);
+        winchDrive1.set(powerClamped);
     }
 
     public void stop() {

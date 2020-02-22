@@ -81,7 +81,7 @@ public class LimelightVision extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    public void robomove() {
+    public double[] robomove() {
         double x = tx.getDouble(0.0);
         double y = ty.getDouble(0.0);
         double area = ta.getDouble(0.0);
@@ -99,7 +99,7 @@ public class LimelightVision extends Subsystem {
         if (steering_adjust < .01 && steering_adjust > -.01){
             isDone = true;
         }
-
+        //FIXME: Is this a problem because I called a subsystem here
         if (tv.getDouble(0.0) == 1){
             Robot.ledDrive.setLightsPattern(.77);
         }
@@ -107,16 +107,12 @@ public class LimelightVision extends Subsystem {
         // They can however, retrieve values from other systems.
         // Would recommend either having this return a delta on what to move to the calling command,
         // Or have the drivetrain get it's values from this (manipulating not allowed, getting values is). 
-        Robot.driveTrain.drive((double) steering_adjust, (double) -steering_adjust);
+
+        //I believe this is fixed now
+        return new double[] {(double) steering_adjust, (double) -steering_adjust};
     }
 
     public boolean isDoneAligning(){
         return isDone;
-        
-    }
-
-    public void stop() {
-        //FIXME: Subsystems should NOT be manipulating other subsystems
-        Robot.driveTrain.drive(0, 0);
     }
 }

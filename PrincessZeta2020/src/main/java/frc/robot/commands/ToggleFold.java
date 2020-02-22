@@ -39,12 +39,14 @@ public class ToggleFold extends InstantCommand {
     @Override
     protected void initialize() {
         // FIXME: Can just use the boolean NOT operator (!)
+        //I think I fixed it?
         if(Robot.intakeElbow.getIsOut()){
-            Robot.intakeElbow.fold(false);
+            Robot.intakeElbow.foldIn();
         }
         else{
-            Robot.intakeElbow.fold(true);
+            Robot.intakeElbow.foldOut();
         }
+        //Robot.intakeElbow.fold(!Robot.intakeElbow.getIsOut());
     }
 
 }

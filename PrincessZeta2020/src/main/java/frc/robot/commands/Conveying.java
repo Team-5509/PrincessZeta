@@ -65,13 +65,13 @@ public class Conveying extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
-        //FIXME: Stop the conveyor
+        Robot.conveyor.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
-        //FIXME: Stop the conveyor (and DRY: don't repeat yourself)
+        end();
     }
 }

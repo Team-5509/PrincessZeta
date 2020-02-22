@@ -49,8 +49,6 @@ public class DriveTank extends Command {
         double leftSpeed = -leftControllerY;
         double rightSpeed = -rightControllerY;
         Robot.driveTrain.drive(leftSpeed, rightSpeed);
-        //FIXME: Move this to drivetrain periodic() if you want to keep it
-        SmartDashboard.putNumber("DriveTrain frontLeftEncoder", Robot.driveTrain.getFrontLeftEncoderPosition());
     }
 
     // Make this return true when this Command no longer needs to run execute()

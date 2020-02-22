@@ -71,18 +71,16 @@ addChild("elbowDrive",elbowDrive);
     // here. Call these from Commands.
     private boolean isOut;
 
-    //FIXME: Would recommend making foldOut()/foldIn() methods rather than relying on a magic boolean
-    // is true out or in? You can tell by looking at the parameter name, but it's a lot easier to remember a method name
-    public void fold(boolean foldOut){
-        if (foldOut){
-            elbowDrive.set(Value.kForward);
-            isOut = true;
-        }
-        else {
-            elbowDrive.set(Value.kReverse);
-            isOut = false;
-        }
+    public void foldOut(){
+        elbowDrive.set(Value.kForward);
+        isOut = true;
     }
+
+    public void foldIn(){
+        elbowDrive.set(Value.kReverse);
+        isOut = false;
+    }
+
     public boolean getIsOut(){
         return isOut;
     }

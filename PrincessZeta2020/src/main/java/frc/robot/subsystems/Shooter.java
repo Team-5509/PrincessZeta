@@ -53,29 +53,24 @@ private WPI_TalonSRX shooterDrive2;
     private final static double SPEED_D_CONSTANT_BOTTOM = 0.0;
     private final static double SPEED_F_CONSTANT_BOTTOM = 0.0;
 
-    //FIXME: Doesn't need to be public
-    public double speedP_top = SPEED_P_CONSTANT_TOP;
-    public double speedI_top = SPEED_I_CONSTANT_TOP;
-    public double speedD_top = SPEED_D_CONSTANT_TOP;
-    public double speedF_top = SPEED_F_CONSTANT_TOP;
+    private final static double speedP_top = SPEED_P_CONSTANT_TOP;
+    private final static double speedI_top = SPEED_I_CONSTANT_TOP;
+    private final static double speedD_top = SPEED_D_CONSTANT_TOP;
+    private final static double speedF_top = SPEED_F_CONSTANT_TOP;
 
-    //FIXME: Doesn't need to be public
-    public double speedP_bottom = SPEED_P_CONSTANT_BOTTOM;
-    public double speedI_bottom = SPEED_I_CONSTANT_BOTTOM;
-    public double speedD_bottom = SPEED_D_CONSTANT_BOTTOM;
-    public double speedF_bottom = SPEED_F_CONSTANT_BOTTOM;
+    private final static double speedP_bottom = SPEED_P_CONSTANT_BOTTOM;
+    private final static double speedI_bottom = SPEED_I_CONSTANT_BOTTOM;
+    private final static double speedD_bottom = SPEED_D_CONSTANT_BOTTOM;
+    private final static double speedF_bottom = SPEED_F_CONSTANT_BOTTOM;
 
+    private final static double angleOfCamera = 0.176996; // (must be in radians)
+    private final static double angleBallLeaves = 0.707; //Fake value ~45 degrees (must be in radians)
+    private final static double heightOfCamera = 1.875; 
+    private final static double heightOfGoal = 7.010416666666666667; 
+    private final static double deltaHeight = (heightOfGoal - heightOfCamera);
+    private final static double g = 9.81;
 
-    //FIXME: Doesn't need to be public
-    public double angleOfCamera = 0.176996; // (must be in radians)
-    public double angleBallLeaves = 0.707; //Fake value ~45 degrees (must be in radians)
-    public double heightOfCamera = 1.875; 
-    public double heightOfGoal = 7.010416666666666667; 
-    double deltaHeight = (heightOfGoal - heightOfCamera);
-    public double g = 9.81;
-
-    //FIXME: Doesn't need to be public
-    public final static int PID_SLOT_SPEED_MODE = 0;
+    private final static int PID_SLOT_SPEED_MODE = 0;
     private final int TIMEOUT_MS = 10;
 
     private static final int MAX_TICKS_PER_SEC_TOP = 100;
@@ -99,6 +94,8 @@ private WPI_TalonSRX shooterDrive2;
 
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
+        shooterDrive1.setNeutralMode(NeutralMode.Brake);
+        shooterDrive2.setNeutralMode(NeutralMode.Brake);
     }
 
     @Override
@@ -190,9 +187,6 @@ private WPI_TalonSRX shooterDrive2;
     }
 
     public void stop() {
-        //FIXME: You're not setting neutral mode anywhere else, can move to constructor
-        shooterDrive1.setNeutralMode(NeutralMode.Brake);
-        shooterDrive2.setNeutralMode(NeutralMode.Brake);
         shoot(0);
     }
 
@@ -206,6 +200,7 @@ private WPI_TalonSRX shooterDrive2;
 
 
     //FIXME: You're not using these, can remove
+    //but what if we do
     public int getTicksPerSecondTop() {
         return shooterDrive1.getSelectedSensorVelocity();
     }

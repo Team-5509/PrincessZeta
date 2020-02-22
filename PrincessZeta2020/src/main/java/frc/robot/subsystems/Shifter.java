@@ -74,15 +74,13 @@ addChild("rightShiftDrive",rightShiftDrive);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     
-    //FIXME: Would recommend making shiftLow()/shiftHigh() methods rather than relying on a magic boolean
-    // is true high or low? You can tell by looking at the parameter name, but it's a lot easier to remember a method name
-    public void shift(boolean shiftHigh) {
-        if (shiftHigh) {
-            leftShiftDrive.set(Value.kReverse);
-            rightShiftDrive.set(Value.kReverse);
-        } else {
-            leftShiftDrive.set(Value.kForward);
-            rightShiftDrive.set(Value.kForward);
-        }
+    public void shiftHigh() {
+        leftShiftDrive.set(Value.kReverse);
+        rightShiftDrive.set(Value.kReverse);
+    }
+
+    public void shiftLow() {
+        leftShiftDrive.set(Value.kForward);
+        rightShiftDrive.set(Value.kForward);
     }
 }
