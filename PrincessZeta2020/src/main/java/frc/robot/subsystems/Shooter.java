@@ -197,15 +197,4 @@ private WPI_TalonSRX shooterDrive2;
     public void setPercentSpeedPIDBottom(double setSpeed) {
         shooterDrive2.set(ControlMode.Velocity, MAX_TICKS_PER_SEC_BOTTOM * setSpeed);
     }
-
-
-    //FIXME: You're not using these, can remove
-    //but what if we do
-    public int getTicksPerSecondTop() {
-        return shooterDrive1.getSelectedSensorVelocity();
-    }
-
-    public int getTicksPerSecondBottom() {
-        return shooterDrive2.getSelectedSensorVelocity();
-    }
 }
