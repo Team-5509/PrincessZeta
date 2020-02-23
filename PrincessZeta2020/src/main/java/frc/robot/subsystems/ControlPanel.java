@@ -99,7 +99,7 @@ controlPanelDrive = new WPI_TalonSRX(6);
 
     }
     public boolean isYellow(Color color) {
-        if (color.red >= .4) {
+        if (color.green >= .52 && color.red >= .3) {
             return true;
         } else {
             return false;
@@ -115,7 +115,7 @@ controlPanelDrive = new WPI_TalonSRX(6);
 
     }
     public boolean isGreen(Color color) {
-        if (color.green >= .4) {
+        if (color.green >= .53 && color.red <= .2) {
             return true;
         } else {
             return false;
