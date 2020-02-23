@@ -95,7 +95,7 @@ public class DriveTrain extends Subsystem {
          * backLeftDrive = new WPI_TalonSRX(3); backRightDrive = new WPI_TalonSRX(4);
          */
 
-        backLeftDrive.follow(frontLeftDrive);
+        backLeftDrive.follow(ExternalFollower.kFollowerSparkMax, frontLeftDrive.getDeviceId());
         backRightDrive.follow(frontRightDrive);
 
         frontLeftEncoder = new CANEncoder(frontLeftDrive);
@@ -160,18 +160,17 @@ public class DriveTrain extends Subsystem {
         return ahrs.getYaw();
     }
 
-    //FIXME: Fairly certain you're not using these. Can remove
-    // I am using this in DriveXFeet
     public double getFrontLeftEncoderPosition() {
         return frontLeftEncoder.getPosition();
     }
-    //However, not using frontRight
+
     public double getFrontRightEncoderPosition() {
         return frontRightEncoder.getPosition();
     }
 
     public void alignToTarget() {
-        drive(Robot.limelightVision.robomove()[0], Robot.limelightVision.robomove()[1]);
+        double[] alignDrive = Robot.limelightVision.robomove();
+        drive(alignDrive[0], alignDrive[1]);
     }
 
     public void setTurnSetpoint(double angleInDegrees){
