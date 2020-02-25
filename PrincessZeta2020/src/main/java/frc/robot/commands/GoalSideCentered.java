@@ -28,7 +28,10 @@ public class GoalSideCentered extends CommandGroup {
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-
+        addSequential(new DriveXFeet(102/12.0));
+        addSequential(new TurnNDegreesAbsolute(-90));
+        addSequential(new DriveXFeet(4));
+        addSequential(new AutonShooter());
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());

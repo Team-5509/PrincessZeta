@@ -27,8 +27,12 @@ public class CenterRightCentered extends CommandGroup {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
-        // these will run in order.
-
+        // these will run in order.  
+        addSequential(new TurnNDegreesAbsolute(-90));
+        addSequential(new DriveXFeet(58/12.0));
+        addSequential(new TurnNDegreesAbsolute(0));
+        addSequential(new DriveXFeet(4.0));
+        addSequential(new AutonShooter());
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());
