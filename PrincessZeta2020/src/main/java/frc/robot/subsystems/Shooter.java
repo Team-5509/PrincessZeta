@@ -163,9 +163,13 @@ private WPI_TalonSRX shooterDrive2;
         double deltaHeight = heightOfGoal - heightOfCamera;
         //The velocity
         double velocityRaw = Math.sqrt((Math.pow(x, 2) * g)/(2*Math.cos(angleBallLeaves) * (x*Math.sin(angleBallLeaves) - deltaHeight*Math.cos(angleBallLeaves))));
-        SmartDashboard.putNumber("Velocity", velocityRaw);
+        SmartDashboard.putNumber("Velocity Raw", velocityRaw);
+        double velocityAdjusted = velocityRaw * (1/17);
+        SmartDashboard.putNumber("Velocity Adjusted", velocityAdjusted);
 
-        this.shoot(velocityRaw/30);
+        
+        this.shoot(velocityAdjusted);
+
         SmartDashboard.putNumber("Encoder Values Of Shooter",shooterDrive1.getSelectedSensorVelocity());
 
         
