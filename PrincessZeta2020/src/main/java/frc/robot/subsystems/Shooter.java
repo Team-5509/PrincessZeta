@@ -164,7 +164,7 @@ private WPI_TalonSRX shooterDrive2;
         //The velocity
         double velocityRaw = Math.sqrt((Math.pow(x, 2) * g)/(2*Math.cos(angleBallLeaves) * (x*Math.sin(angleBallLeaves) - deltaHeight*Math.cos(angleBallLeaves))));
         SmartDashboard.putNumber("Velocity Raw", velocityRaw);
-        double velocityAdjusted = velocityRaw * (1/17);
+        double velocityAdjusted = velocityRaw * (1/30);
         SmartDashboard.putNumber("Velocity Adjusted", velocityAdjusted);
 
         
