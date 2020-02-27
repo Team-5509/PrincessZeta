@@ -21,87 +21,15 @@ import frc.robot.subsystems.DriveTrain;
 class PathweaverCommand extends RamseteCommand {
 
     Path trajectoryPath;
+
     public PathweaverCommand(String pathFileName) throws IOException {
         super(TrajectoryUtil.fromPathweaverJson(Filesystem.getDeployDirectory().toPath().resolve(pathFileName)),
-        (Supplier<Pose2d>)Robot.driveTrain::getPose,
-        new RamseteController(Robot.kRamseteB, Robot.kRamseteZeta),
-        new SimpleMotorFeedforward(Robot.ksVolts,
-                                   Robot.kvVoltsSecondsPerMeter,
-                                   Robot.kAVoltsSecondsSquaredPerMeter),
-        Robot.kDriveKinematics,
-        (Supplier<DifferentialDriveWheelSpeeds>)Robot.driveTrain::getWheelSpeeds,
-        new PIDController(Robot.kPDriveVel, 0, 0),
-        new PIDController(Robot.kPDriveVel, 0, 0),
-        (BiConsumer<Double, Double>)Robot.driveTrain::tankDriveVolts
-        );
-        /*
-        super​(trajectoryPath,
-        Robot.driveTrain.getPose(),
-        new RamseteController(Robot.kRamseteB, Robot.kRamseteZeta),
-        new SimpleMotorFeedforward(Robot.ksVolts,
-                                   Robot.kvVoltsSecondsPerMeter,
-                                   Robot.kAVoltsSecondsSquaredPerMeter),
-        Robot.kDriveKinematics,
-        Robot.driveTrain.getWheelSpeeds(),
-        new PIDController(Robot.kPDriveVel, 0, 0),
-        new PIDController(Robot.kPDriveVel, 0, 0),
-        Robot.driveTrain::tankDriveVolts,
-        Robot.driveTrain
-            );
-            */
-            /*
-        final DriveTrain driveTrain = Robot.driveTrain;
-        final Supplier<Pose2d> pose = driveTrain::getPose;
-        final Supplier<DifferentialDriveWheelSpeeds> wheelSpeeds = driveTrain::getWheelSpeeds;
-        final BiConsumer<Double, Double> outputVolts = driveTrain::tankDriveVolts;
-
-        final Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve(pathFileName);
-        final Trajectory trajectory = TrajectoryUtil.fromPathweaverJson(trajectoryPath);
-        */
-/*
-        super​(trajectory,
-        pose,
-        new RamseteController(Robot.kRamseteB, Robot.kRamseteZeta),
-        new SimpleMotorFeedforward(Robot.ksVolts,
-        Robot.kvVoltsSecondsPerMeter,
-        Robot.kAVoltsSecondsSquaredPerMeter),
-        Robot.kDriveKinematics,
-        wheelSpeeds,
-        new PIDController(Robot.kPDriveVel, 0, 0),
-        new PIDController(Robot.kPDriveVel, 0, 0),
-        // RamseteCommand passes volts to the callback
-        outputVolts, null);
-        */
-
-        /*
-        super(trajectory,
-        pose,
-        controller,
-        feedforward,
-        kinematics,
-        wheelSpeeds,
-        leftController,
-        rightController,
-        outputVolts,
-        null);
-            */
-        
-        /*
-        trajectory,
-                Robot.driveTrain.getPose(),
+                (Supplier<Pose2d>) Robot.driveTrain::getPose,
                 new RamseteController(Robot.kRamseteB, Robot.kRamseteZeta),
-                new SimpleMotorFeedforward(Robot.ksVolts,
-                                           Robot.kvVoltsSecondsPerMeter,
-                                           Robot.kAVoltsSecondsSquaredPerMeter),
-                Robot.kDriveKinematics,
-                Robot.driveTrain.getWheelSpeeds(),
-                new PIDController(Robot.kPDriveVel, 0, 0),
-                new PIDController(Robot.kPDriveVel, 0, 0),
-                Robot.driveTrain::tankDriveVolts,
-                Robot.driveTrain
-        );
-        */
-
-
+                new SimpleMotorFeedforward(Robot.ksVolts, Robot.kvVoltsSecondsPerMeter,
+                        Robot.kAVoltsSecondsSquaredPerMeter),
+                Robot.kDriveKinematics, (Supplier<DifferentialDriveWheelSpeeds>) Robot.driveTrain::getWheelSpeeds,
+                new PIDController(Robot.kPDriveVel, 0, 0), new PIDController(Robot.kPDriveVel, 0, 0),
+                (BiConsumer<Double, Double>) Robot.driveTrain::tankDriveVolts);
     }
 }
