@@ -28,8 +28,8 @@ public class AutonShooter extends CommandGroup {
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-        addParallel(new ShootingAuto());
-        addParallel(new Conveying(.75));
+        addParallel(new ShootingAutoTimed());
+        addParallel(new ConveyingTimed(.75));
         addParallel(new WaitNSeconds(3)); 
 
         // To run multiple commands at the same time,
