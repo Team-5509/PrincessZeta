@@ -48,7 +48,17 @@ public class DriveTank extends Command {
         double rightControllerY = Robot.oi.driverRightJoystick.getY();
         double leftSpeed = -leftControllerY;
         double rightSpeed = -rightControllerY;
-        Robot.driveTrain.drive(leftSpeed, rightSpeed);
+        
+        if (Math.abs(leftSpeed) <= .05 && Math.abs(rightSpeed) >= .05){
+            Robot.driveTrain.drive(0, rightSpeed);
+        } else if (Math.abs(rightSpeed) <= .08 && Math.abs(leftSpeed) >= .08){
+            Robot.driveTrain.drive(leftSpeed, 0);
+        } else if (Math.abs(rightSpeed) <= .08 && Math.abs(leftSpeed) <= .08){
+            Robot.driveTrain.drive(0, 0);
+        } else {
+            Robot.driveTrain.drive(leftSpeed, rightSpeed);
+        }
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()

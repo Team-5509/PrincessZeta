@@ -46,7 +46,7 @@ public class TurnNDegreesAbsolute extends Command {
     protected void initialize() {
         Robot.shifter.shiftLow();
 
-        setTimeout(5);
+        setTimeout(2);
         Robot.driveTrain.setTurnSetpoint(m_degrees);    
     }
 

@@ -1,5 +1,5 @@
 package frc.robot.commands;
-public class ConveyingTimed extends Conveying {
+public class ConveyingTimed extends Index {
     public ConveyingTimed(double spinInVoltage) {
         super(spinInVoltage);
     }
