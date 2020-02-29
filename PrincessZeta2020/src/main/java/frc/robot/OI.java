@@ -105,7 +105,7 @@ driverRightJoystick = new Joystick(1);
 toggleFoldButton = new JoystickButton(driverRightJoystick, 2);
 toggleFoldButton.whenPressed(new ToggleFold());
 alignToTargetButton = new JoystickButton(driverRightJoystick, 5);
-alignToTargetButton.whenPressed(new AlignDrivetrainToTarget());
+alignToTargetButton.whileHeld(new AlignDrivetrainToTarget());
 intakeInButton = new JoystickButton(driverRightJoystick, 4);
 intakeInButton.whileHeld(new Intaking(.50));
 shiftHighButton = new JoystickButton(driverRightJoystick, 3);

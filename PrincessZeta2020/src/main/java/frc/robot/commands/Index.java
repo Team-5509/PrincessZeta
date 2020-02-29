@@ -45,7 +45,7 @@ public class Index extends Command {
     @Override
     protected void execute() {
         Robot.indexer.drive(m_spinInVoltage);
-        Robot.conveyor.convey(.4);
+        Robot.conveyor.convey(.8);
     }
 
     // Make this return true when this Command no longer needs to run execute()
