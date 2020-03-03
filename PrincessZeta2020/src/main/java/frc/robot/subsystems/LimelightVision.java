@@ -98,6 +98,8 @@ public class LimelightVision extends Subsystem {
         }
 
         if (steering_adjust < .01 && steering_adjust > -.01){
+            //FIXME: There is nothing setting isDone back to false.
+            // Best bet would be to put isDone = false in AlignDrivetrainToTarget.initialize()
             isDone = true;
         }
 

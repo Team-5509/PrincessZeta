@@ -44,6 +44,7 @@ public class ShootingAuto extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        //FIXME: Put this back. If you want a manual shot, use Shooting() (note lack of Auto)
        Robot.shooter.shoot(-1);
         //Robot.shooter.shootAuto();
     }
