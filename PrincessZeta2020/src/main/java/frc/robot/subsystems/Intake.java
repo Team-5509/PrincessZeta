@@ -105,7 +105,7 @@ intakeDrive = new WPI_TalonSRX(7);
     }
 
     public void stop() {
-        suck(0);
+        intakeDrive.set(0);
     }
 
     public void setPercentSpeedPID(double setSpeed) {

@@ -28,9 +28,9 @@ public class CenterRightOffsetLeft extends CommandGroup {
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-        addSequential(new DriveXFeet(4.0));
-        addSequential(new TurnNDegreesAbsolute(12));
-        addSequential(new ShootingAuto());
+        addSequential(new AutonShooter());
+        addSequential(new DriveXFeet(4, .5));
+        //addSequential(new TurnNDegreesAbsolute(25));
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());

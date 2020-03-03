@@ -82,6 +82,7 @@ public class LimelightVision extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public double[] robomove() {
+        
         double x = tx.getDouble(0.0);
         double y = ty.getDouble(0.0);
         double area = ta.getDouble(0.0);
@@ -106,7 +107,9 @@ public class LimelightVision extends Subsystem {
     
         return new double[] {(double) steering_adjust, (double) -steering_adjust};
     }
-
+    public void setIsDone(boolean input){
+        isDone = input;
+    }
     public boolean isDoneAligning(){
         return isDone;
     }
