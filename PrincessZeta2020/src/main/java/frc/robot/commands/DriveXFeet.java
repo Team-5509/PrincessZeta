@@ -56,6 +56,7 @@ public class DriveXFeet extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        Robot.shifter.shiftLow();
         initialEncoderPosition = Robot.driveTrain.getFrontLeftEncoderPosition();
 
         pidController.setSetpoint(m_feet); 
