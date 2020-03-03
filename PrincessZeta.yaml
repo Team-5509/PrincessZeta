@@ -91,7 +91,7 @@ Children:
           validators: *id002
           value: '8'
       Base: Talon SRX
-      Name: shooterDrive1
+      Name: shooterDriveTop
     - Children: []
       Properties:
         CAN ID: !!robotbuilder.data.properties.ChoicesProperty
@@ -101,7 +101,7 @@ Children:
           validators: *id002
           value: '9'
       Base: Talon SRX
-      Name: shooterDrive2
+      Name: shooterDriveBottom
     Properties:
       Send to SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Send to SmartDashboard, validators: null, value: false}
@@ -516,7 +516,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whenPressed
+          value: whileHeld
       Base: Joystick Button
       Name: alignToTargetButton
     - Children: []
@@ -696,7 +696,7 @@ Children:
           validators: null
           value:
           - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: spinInVoltage,
-            type: double, value: '1'}
+            type: double, value: '.85'}
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id013
           default: '1'
@@ -727,7 +727,7 @@ Children:
           validators: null
           value:
           - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: spinInVoltage,
-            type: double, value: '-1'}
+            type: double, value: '-.85'}
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id013
           default: '1'
@@ -847,7 +847,9 @@ Children:
           default: []
           name: Parameters
           validators: null
-          value: []
+          value:
+          - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: spinInVoltage,
+            type: double, value: '.7'}
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id013
           default: '1'
@@ -865,7 +867,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whenPressed
+          value: whileHeld
       Base: Joystick Button
       Name: IndexButton
     Properties:
@@ -1370,7 +1372,12 @@ Children:
           name: DriveTrain_Drive_10_feet
           parameters:
           - {name: feet, type: double, value: '10'}
-          - {name: maxSpeed, type: double, value: '.4'}
+          - {name: maxSpeed, type: double, value: '.5'}
+        - !!robotbuilder.data.properties.ParameterSet
+          name: DriveTrain_Drive_5_feet
+          parameters:
+          - {name: feet, type: double, value: '5'}
+          - {name: maxSpeed, type: double, value: '.5'}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
@@ -1630,7 +1637,9 @@ Children:
         default: []
         name: Parameters
         validators: null
-        value: []
+        value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: spinInVoltage,
+          type: double}
       Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Run When Disabled, validators: null, value: false}
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
@@ -1641,7 +1650,7 @@ Children:
         validators: null
         value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
+        name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: Index
   Properties: {}
@@ -1670,6 +1679,6 @@ Properties:
   Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Robots\FRCProjects',
     extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\Users\Robots\Documents\Git2020'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-    name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
+    name: Autonomous Command, type: Command, validators: null, value: CenterRightCenteredOffline}
 Base: Robot
 Name: PrincessZeta2020
