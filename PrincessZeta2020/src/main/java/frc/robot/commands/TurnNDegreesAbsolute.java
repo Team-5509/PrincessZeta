@@ -55,7 +55,7 @@ public class TurnNDegreesAbsolute extends Command {
     protected void execute() {
         driveSpeed = Robot.driveTrain.turnCalculate(Robot.driveTrain.getGyroTurnAngle());
 
-        Robot.driveTrain.drive(-driveSpeed, driveSpeed);
+        Robot.driveTrain.drive(driveSpeed, driveSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

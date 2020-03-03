@@ -6,7 +6,7 @@ public class ShootingAutoTimed extends ShootingAuto{
     @Override
     public void initialize(){
         super.initialize();
-        setTimeout(5);
+        setTimeout(9);
     }
     @Override
     public boolean isFinished(){
