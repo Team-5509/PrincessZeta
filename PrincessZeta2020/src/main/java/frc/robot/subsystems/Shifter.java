@@ -76,14 +76,14 @@ addChild("rightShiftDrive",rightShiftDrive);
     // here. Call these from Commands.
     
     public void shiftHigh() {
-        leftShiftDrive.set(Value.kForward);
-        rightShiftDrive.set(Value.kForward);
+        leftShiftDrive.set(Value.kReverse);
+        rightShiftDrive.set(Value.kReverse);
         isInHighGear = true;
     }
 
     public void shiftLow() {
-        leftShiftDrive.set(Value.kReverse);
-        rightShiftDrive.set(Value.kReverse);
+        leftShiftDrive.set(Value.kForward);
+        rightShiftDrive.set(Value.kForward);
         isInHighGear = false;
     }
 

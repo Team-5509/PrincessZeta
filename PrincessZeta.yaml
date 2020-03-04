@@ -1377,7 +1377,7 @@ Children:
           name: DriveTrain_Drive_5_feet
           parameters:
           - {name: feet, type: double, value: '5'}
-          - {name: maxSpeed, type: double, value: '.5'}
+          - {name: maxSpeed, type: double, value: '.3'}
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command

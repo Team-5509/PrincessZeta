@@ -130,7 +130,7 @@ shiftHighButton.whenPressed(new ShiftHigh());
         SmartDashboard.putData("TurnNDegreesAbsolute: one80Degrees", new TurnNDegreesAbsolute(180));
         SmartDashboard.putData("TurnNDegreesAbsolute: left90Degrees", new TurnNDegreesAbsolute(-90));
         SmartDashboard.putData("DriveXFeet: DriveTrain_Drive_10_feet", new DriveXFeet(10, .5));
-        SmartDashboard.putData("DriveXFeet: DriveTrain_Drive_5_feet", new DriveXFeet(5, .5));
+        SmartDashboard.putData("DriveXFeet: DriveTrain_Drive_5_feet", new DriveXFeet(5, .3));
         SmartDashboard.putData("GoalSideOffsetRight", new GoalSideOffsetRight());
         SmartDashboard.putData("GoalSideCentered", new GoalSideCentered());
         SmartDashboard.putData("GoalSideOffsetLeft", new GoalSideOffsetLeft());

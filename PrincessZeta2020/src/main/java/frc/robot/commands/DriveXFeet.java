@@ -87,7 +87,7 @@ public class DriveXFeet extends Command {
             driveSpeed = -m_maxSpeed;
         }
         
-        Robot.driveTrain.drive(driveSpeed, driveSpeed);
+        Robot.driveTrain.driveRaw(driveSpeed, driveSpeed);
         SmartDashboard.putNumber("DriveTrain frontLeftEncoder", Robot.driveTrain.getFrontLeftEncoderPosition());
     }
 
