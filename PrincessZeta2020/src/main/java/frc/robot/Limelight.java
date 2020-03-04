@@ -18,7 +18,7 @@ public final class Limelight {
   public static NetworkTableInstance table = null;
 
   public static enum LightMode {
-		iOn, iOff, iBlink
+		iPipe, iOff, iBlink, iOn
   }
   
   public static boolean isTarget() {
