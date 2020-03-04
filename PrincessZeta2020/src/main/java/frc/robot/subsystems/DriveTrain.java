@@ -69,8 +69,8 @@ public class DriveTrain extends Subsystem {
     private static final int MAX_RPM = 5874;
 
     // These need to be tuned for turn control
-    private static final double PIDTURN_P = 0.01;
-    private static final double PIDTURN_I = 0.0;
+    private static final double PIDTURN_P = 0.015;
+    private static final double PIDTURN_I = 0.0015;
     private static final double PIDTURN_D = 0.0;
 
     private PIDController turnPidController;
@@ -88,10 +88,10 @@ public class DriveTrain extends Subsystem {
         backLeftDrive = new CANSparkMax(3, MotorType.kBrushless);
         backRightDrive = new CANSparkMax(4, MotorType.kBrushless);
 
-        frontLeftDrive.setIdleMode(CANSparkMax.IdleMode.kCoast);
-        frontRightDrive.setIdleMode(CANSparkMax.IdleMode.kCoast);
-        backLeftDrive.setIdleMode(CANSparkMax.IdleMode.kCoast);
-        backRightDrive.setIdleMode(CANSparkMax.IdleMode.kCoast);
+        frontLeftDrive.setIdleMode(CANSparkMax.IdleMode.kBrake);
+        frontRightDrive.setIdleMode(CANSparkMax.IdleMode.kBrake);
+        backLeftDrive.setIdleMode(CANSparkMax.IdleMode.kBrake);
+        backRightDrive.setIdleMode(CANSparkMax.IdleMode.kBrake);
 
         /*
          * frontLeftDrive = new WPI_TalonSRX(1); frontRightDrive = new WPI_TalonSRX(2);
@@ -106,8 +106,8 @@ public class DriveTrain extends Subsystem {
 
         turnPidController = new PIDController(PIDTURN_P, PIDTURN_I, PIDTURN_D);
 
-        Robot.driveTrain.turnEnableContinuousInput(-180, 180);
-        Robot.driveTrain.turnSetTolerance(1);
+        turnEnableContinuousInput(-180, 180);
+        turnSetTolerance(1);
 
         // set PID coefficients
         /*CANPidController.setP(KP_DRIVE);
@@ -135,7 +135,7 @@ public class DriveTrain extends Subsystem {
     public void periodic() {
         // Put code here to be run every loop
         SmartDashboard.putNumber("DriveTrain frontLeftEncoder", getFrontLeftEncoderPosition());
-        SmartDashboard.putNumber("DriveTrain turnPidController", turnPidController.getSetpoint());
+        SmartDashboard.putNumber("DriveTrain turnPidController set point", turnPidController.getSetpoint());
         SmartDashboard.putNumber("DriveTrain gyroTurnAngle", getGyroTurnAngle());
     }
 
