@@ -49,7 +49,7 @@ public class TurnNDegreesAbsolute extends Command {
     protected void initialize() {
         Robot.shifter.shiftLow();
         // TODO: Time how long it'll take in low gear to complete a 180 degree turn. That'll be the max.
-        setTimeout(5);
+        setTimeout(3);
         Robot.driveTrain.setTurnSetpoint(m_degrees);    
     }
 

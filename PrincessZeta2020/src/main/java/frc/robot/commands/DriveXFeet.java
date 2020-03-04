@@ -56,6 +56,8 @@ public class DriveXFeet extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        setTimeout(3);
+
         Robot.shifter.shiftLow();
         initialEncoderPosition = Robot.driveTrain.getFrontLeftEncoderPosition();
 
@@ -94,7 +96,7 @@ public class DriveXFeet extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return pidController.atSetpoint();
+        return pidController.atSetpoint() || isTimedOut();
     }
 
     // Called once after isFinished returns true

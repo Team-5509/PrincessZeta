@@ -39,6 +39,7 @@ public class AlignDrivetrainToTarget extends Command {
     @Override
     protected void initialize() {
         Robot.limelightVision.setIsDone(false);
+        setTimeout(3);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -50,7 +51,7 @@ public class AlignDrivetrainToTarget extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return Robot.limelightVision.isDoneAligning();
+        return Robot.limelightVision.isDoneAligning() || isTimedOut();
     }
 
     // Called once after isFinished returns true

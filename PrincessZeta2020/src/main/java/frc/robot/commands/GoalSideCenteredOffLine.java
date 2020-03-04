@@ -31,9 +31,10 @@ public class GoalSideCenteredOffLine extends CommandGroup {
         addSequential(new DriveXFeet(40/12.0));
         addSequential(new TurnNDegreesAbsolute(-90));
         addSequential(new DriveXFeet(4));
-        addSequential(new TurnNDegreesAbsolute(90));
+        addSequential(new TurnNDegreesAbsolute(0));
         addSequential(new DriveXFeet(62/12.0));
         addSequential(new TurnNDegreesAbsolute(-90));
+        addSequential(new AlignDrivetrainToTarget());
         //addSequential(new AutonShooter());
         // To run multiple commands at the same time,
         // use addParallel()
