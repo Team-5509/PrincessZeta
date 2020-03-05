@@ -33,6 +33,7 @@ public class CenterRightOffsetRight extends CommandGroup {
         addSequential(new TurnNDegreesAbsolute(0));
         addSequential(new DriveXFeet(4));
         addSequential(new TurnNDegreesAbsolute(-12));
+        addSequential(new AlignDrivetrainToTarget());
         addSequential(new AutonShooter());
         // To run multiple commands at the same time,
         // use addParallel()

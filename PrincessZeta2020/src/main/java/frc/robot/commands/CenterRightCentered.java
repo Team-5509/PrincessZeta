@@ -31,9 +31,9 @@ public class CenterRightCentered extends CommandGroup {
         addSequential(new TurnNDegreesAbsolute(-90));
         addSequential(new DriveXFeet(58/12.0));
         addSequential(new TurnNDegreesAbsolute(0));
-        //addSequential(new DriveXFeet(4.0));
+        addSequential(new AlignDrivetrainToTarget());
         addSequential(new AutonShooter());
-        addSequential(new DriveXFeet(-3.0));
+        addSequential(new DriveXFeet(4.0));
         // To run multiple commands at the same time,
         // use addParallel()
         // e.g. addParallel(new Command1());

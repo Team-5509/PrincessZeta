@@ -32,6 +32,7 @@ public class CenterRightCenteredOffline extends CommandGroup {
         addSequential(new TurnNDegreesAbsolute(-90));
         addSequential(new DriveXFeet(55/12.0));
         addSequential(new TurnNDegreesAbsolute(0));
+        addSequential(new AlignDrivetrainToTarget());
         addSequential(new AutonShooter());
         // To run multiple commands at the same time,
         // use addParallel()
