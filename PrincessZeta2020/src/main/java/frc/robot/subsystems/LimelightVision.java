@@ -109,6 +109,10 @@ public class LimelightVision extends Subsystem {
         
         MathUtil.clamp(steering_adjust, -.3, .3);
 
+        if (Math.abs(steering_adjust) < .1){
+            steering_adjust *= 1.8;
+        }
+
         return new double[] {(double) steering_adjust, (double) -steering_adjust};
     }
     public void setIsDone(boolean input){
