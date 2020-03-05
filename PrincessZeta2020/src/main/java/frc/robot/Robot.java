@@ -22,6 +22,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
+import frc.robot.Limelight;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -138,6 +140,7 @@ indexer = new Indexer();
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove
         // this line or comment it out.
+        Limelight.setLedMode(Limelight.LightMode.iOff);
         if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
