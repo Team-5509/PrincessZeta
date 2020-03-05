@@ -105,6 +105,8 @@ public class LimelightVision extends Subsystem {
 
         if (tv.getDouble(0.0) == 1){
             Robot.ledDrive.setLightsPattern(Robot.ledDrive.GREEN);
+        } else{
+            Robot.ledDrive.setLightsPattern(Robot.ledDrive.RED);
         }
         
         MathUtil.clamp(steering_adjust, -.3, .3);
