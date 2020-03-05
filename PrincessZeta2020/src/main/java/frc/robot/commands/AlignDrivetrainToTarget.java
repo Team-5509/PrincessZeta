@@ -12,6 +12,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.Limelight;
 
 /**
  *
@@ -38,6 +39,7 @@ public class AlignDrivetrainToTarget extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        Limelight.setLedMode(Limelight.LightMode.iOn);
         Robot.limelightVision.setIsDone(false);
     }
 
@@ -50,6 +52,9 @@ public class AlignDrivetrainToTarget extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
+        if (Robot.limelightVision.isDoneAligning()){
+            Limelight.setLedMode(Limelight.LightMode.iOff);
+        }
         return Robot.limelightVision.isDoneAligning();
     }
 

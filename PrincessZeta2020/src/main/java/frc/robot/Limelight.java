@@ -49,10 +49,6 @@ public final class Limelight {
 		getValue("ledMode").setNumber(mode.ordinal());
 	}
 
-	public static void setCameraMode(CameraMode mode) {
-		getValue("camMode").setNumber(mode.ordinal());
-	}
-
   private static NetworkTableEntry getValue(String key) {
 		if (table == null) { //If there isn't a table, make one
 			table = NetworkTableInstance.getDefault();
