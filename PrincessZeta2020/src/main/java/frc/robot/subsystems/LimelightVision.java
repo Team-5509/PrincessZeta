@@ -76,11 +76,13 @@ public class LimelightVision extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public double[] robomove() {
+        Limelight.setLedMode(Limelight.LightMode.iOn);
+        
         double x = Limelight.getTx();
         double y = Limelight.getTy();
         double area = Limelight.getTa();
 
-        float Kp = (float)SmartDashboard.getNumber("Kp_Limelight", -0.06);//-0.06f;
+        float Kp = (float)SmartDashboard.getNumber("Kp_Limelight", -0.03);//-0.06f;
         float min_command = (float)SmartDashboard.getNumber("min_command_limelight", 0.01);//0.01f;
 
         double heading_error = -x;

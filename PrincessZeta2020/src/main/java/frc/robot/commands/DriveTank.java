@@ -11,6 +11,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Limelight;
 import frc.robot.Robot;
 
 /**
@@ -38,6 +39,7 @@ public class DriveTank extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        Limelight.setLedMode(Limelight.LightMode.iOff);
         Robot.driveTrain.stop();
     }
 

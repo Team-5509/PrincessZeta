@@ -103,6 +103,8 @@ indexer = new Indexer();
         chooser.addOption("Start center right shoot left", new CenterRightOffsetLeft());
         chooser.addOption("CenterRightCenteredOffline", new CenterRightCenteredOffline());
         SmartDashboard.putData("Auto mode", chooser);
+
+        Limelight.setLedMode(Limelight.LightMode.iOff);
     }
 
     /**
@@ -140,7 +142,6 @@ indexer = new Indexer();
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        Limelight.setLedMode(Limelight.LightMode.iOff);
         if (autonomousCommand != null) autonomousCommand.cancel();
     }
 
