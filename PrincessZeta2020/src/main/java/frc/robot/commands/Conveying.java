@@ -51,9 +51,6 @@ public class Conveying extends Command {
         if (m_spinInVoltage > 0 || m_spinInVoltage < 0) {
             Robot.ledDrive.setLightsPattern(Robot.ledDrive.TRACING_BLUE_AND_YELLOW);
         }
-        else {
-            Robot.ledDrive.setLightsPattern(Robot.ledDrive.DEFAULT_BPM_BLUE_AND_YELLOW);
-        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
