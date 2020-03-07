@@ -60,6 +60,7 @@ public class AlignDrivetrainToTarget extends Command {
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Limelight.setLedMode(Limelight.LightMode.iOff);
         Robot.driveTrain.stop();
     }
 

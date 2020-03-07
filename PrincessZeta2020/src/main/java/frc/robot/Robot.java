@@ -105,6 +105,7 @@ indexer = new Indexer();
         SmartDashboard.putData("Auto mode", chooser);
 
         Limelight.setLedMode(Limelight.LightMode.iOff);
+        
     }
 
     /**

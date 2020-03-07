@@ -93,7 +93,7 @@ public class LimelightVision extends Subsystem {
             steering_adjust = (float) (Kp * heading_error + min_command);
         }
 
-        if (steering_adjust < .01 && steering_adjust > -.01){
+        if (steering_adjust < .01 && steering_adjust > -.01 && Limelight.isTarget()) {
             isDone = true;
         }
 
