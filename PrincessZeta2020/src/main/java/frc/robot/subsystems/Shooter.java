@@ -168,8 +168,8 @@ private WPI_TalonSRX shooterDriveBottom;
         //The velocity
         double velocityRaw = Math.sqrt((Math.pow(x, 2) * g)/(2*Math.cos(angleBallLeavesRadians) * (x*Math.sin(angleBallLeavesRadians) - deltaHeight*Math.cos(angleBallLeavesRadians))));
         SmartDashboard.putNumber("Shooter Velocity", velocityRaw);
-
-        this.shoot(SmartDashboard.getNumber("Shooter Raw Speed", 0));
+        double theActualVelocityThatWeAreUsingNowWithTheEquationThatWeMade = (.00502*getHorizontalDistance() +.61);
+        this.shoot(theActualVelocityThatWeAreUsingNowWithTheEquationThatWeMade);
     }
 
     public void initSpeedMode() {
